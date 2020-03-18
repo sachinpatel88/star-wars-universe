@@ -1,0 +1,19 @@
+{
+  "name": "star-wars-universe",
+  "version": "1.0.0",
+  "description": "Explore start wars universe.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sachinpatel88/star-wars-universe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sachinpatel88/star-wars-universe/issues"
+  },
+  "homepage": "https://github.com/sachinpatel88/star-wars-universe#readme"
+}
