@@ -1,0 +1,15 @@
+query Vehicle($id: Int) {
+    vehicle(id: $id) {
+        name
+        model
+        manufacturer
+        cost_in_credits
+        length
+        max_atmosphering_speed
+        crew
+        passengers
+        cargo_capacity
+        consumables
+        vehicle_class
+    }
+}

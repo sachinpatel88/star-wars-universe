@@ -1,0 +1,13 @@
+query Planet($id: Int) {
+    planet(id: $id) {
+        name
+        rotation_period
+        orbital_period
+        diameter
+        climate
+        gravity
+        terrain
+        surface_water
+        population
+    }
+}

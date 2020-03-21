@@ -1,0 +1,13 @@
+query PagedPeople($cursor: Int) {
+    people(cursor: $cursor) {
+        people {
+            name
+            gender
+            url
+        }
+        cursor {
+            nextPage
+            prevPage
+        }
+    }
+}

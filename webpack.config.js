@@ -1,6 +1,8 @@
 var path = require('path');
 var webpack = require('webpack');
 
+// @TODO: Production optimization
+
 module.exports = {
     devServer: {
         historyApiFallback: true
@@ -30,6 +32,11 @@ module.exports = {
                         loader: 'less-loader' // compiles Less to CSS
                     }
                 ]
+            },
+            {
+                test: /\.(graphql|gql)$/,
+                exclude: /node_modules/,
+                loader: 'graphql-tag/loader'
             }
         ]
     },
