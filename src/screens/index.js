@@ -1,14 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import PeopleList from './people';
-import PeopleDetails from './details';
-import './styles.less';
-
 import { ApolloClient } from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { HttpLink } from 'apollo-link-http';
 import { ApolloProvider } from '@apollo/react-hooks';
 import MainApp from './main';
+import './styles.less';
 
 const cache = new InMemoryCache({
     addTypename: false

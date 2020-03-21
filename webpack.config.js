@@ -1,7 +1,8 @@
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var CopyPlugin = require('copy-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 var path = require('path');
-var webpack = require('webpack');
-
-// @TODO: Production optimization
 
 module.exports = {
     devServer: {
@@ -12,6 +13,17 @@ module.exports = {
         path: path.resolve(__dirname, 'build'),
         filename: 'app.bundle.js'
     },
+    optimization: {
+        splitChunks: {
+            chunks: 'all'
+        },
+        minimizer: [new UglifyJsPlugin()]
+    },
+    plugins: [
+        new HtmlWebpackPlugin({ title: 'Star Wars Universe' }),
+        new CleanWebpackPlugin(),
+        new CopyPlugin([{ from: './resources', to: 'resources' }])
+    ],
     module: {
         rules: [
             {
@@ -43,5 +55,5 @@ module.exports = {
     stats: {
         colors: true
     },
-    devtool: 'source-map'
+    devtool: false
 };
