@@ -6,7 +6,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 var path = require('path');
 
 module.exports = env => {
-    const envKeys = Object.keys(env).reduce((prev, next) => {
+    const envKeys = Object.keys(env || {}).reduce((prev, next) => {
         prev[next] = env[next];
         return prev;
     }, {});

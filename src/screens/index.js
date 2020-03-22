@@ -4,6 +4,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import { HttpLink } from 'apollo-link-http';
 import { ApolloProvider } from '@apollo/react-hooks';
 import MainApp from './main';
+import get from 'lodash/get';
 import './styles.less';
 
 const cache = new InMemoryCache({
@@ -11,7 +12,7 @@ const cache = new InMemoryCache({
 });
 
 const link = new HttpLink({
-    uri: process.env.GRAPHQL_SERVER_URL || 'http://localhost:4000/'
+    uri: get(process, 'env.GRAPHQL_SERVER_URL', 'http://localhost:4000/')
 });
 
 const client = new ApolloClient({
