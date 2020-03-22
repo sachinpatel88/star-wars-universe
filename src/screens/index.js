@@ -11,7 +11,7 @@ const cache = new InMemoryCache({
 });
 
 const link = new HttpLink({
-    uri: 'http://localhost:4000/'
+    uri: process.env.GRAPHQL_SERVER_URL || 'http://localhost:4000/'
 });
 
 const client = new ApolloClient({
