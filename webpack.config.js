@@ -7,10 +7,13 @@ var path = require('path');
 
 module.exports = {
     devServer: {
-        historyApiFallback: true
+        historyApiFallback: {
+            index: 'build/index.html'
+        }
     },
     entry: './src/index.js',
     output: {
+        publicPath: '/',
         path: path.resolve(__dirname, 'build'),
         filename: 'app.bundle.js'
     },
@@ -21,13 +24,13 @@ module.exports = {
         minimizer: [new UglifyJsPlugin()]
     },
     plugins: [
+        new CleanWebpackPlugin(),
         new webpack.DefinePlugin({
             GRAPHQL_SERVER_URL: JSON.stringify(
                 process.env.GRAPHQL_SERVER_URL || 'http://localhost:4000/'
             )
         }),
         new HtmlWebpackPlugin({ title: 'Star Wars Universe' }),
-        new CleanWebpackPlugin(),
         new CopyPlugin([{ from: './resources', to: 'resources' }])
     ],
     module: {
@@ -61,5 +64,5 @@ module.exports = {
     stats: {
         colors: true
     },
-    devtool: false
+    devtool: 'inline-source-map'
 };

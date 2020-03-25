@@ -7,6 +7,7 @@ import Loader from './../../components/loader';
 import get from 'lodash/get';
 import debounce from 'lodash/debounce';
 import { getIdFromUrl, getProfileUrl } from './../../utils';
+import ReactGA from 'react-ga';
 import './styles.less';
 
 const NAME_SPACE_KEY = 'people';
@@ -45,7 +46,7 @@ export default function Home() {
     const { data, loading, error, fetchMore } = useQuery(PagedPeople, {
         variables: { cursor: nextPageNumb }
     });
-
+    ReactGA.pageview(window.location.pathname);
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {

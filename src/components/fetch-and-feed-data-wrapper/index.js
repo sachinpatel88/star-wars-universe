@@ -9,7 +9,6 @@ function WithQuery({ id, query, dataKey, ...props }) {
     return WithFetchData(TableView, query, { id: id }, props, dataKey);
 }
 
-// Wrap
 export default function FetchAndFeedDataWrapper({ url, urls = [], ...props }) {
     if (url) return <WithQuery id={getIdFromUrl(url)} {...props} />;
     if (!urls.length) return <NoData />;

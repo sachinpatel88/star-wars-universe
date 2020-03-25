@@ -14,6 +14,7 @@ import FetchAndFeedDataWrapper from './../../components/fetch-and-feed-data-wrap
 import Error from './../../components/error';
 import NoData from './../../components/no-data';
 import Loader from './../../components/loader';
+import ReactGA from 'react-ga';
 
 const queryMap = {
     starship: StarshipQuery,
@@ -36,7 +37,7 @@ function createDetailsFetcher(urls, dataKey) {
 
 export default function PeopleDetails() {
     const { id } = useParams();
-
+    ReactGA.pageview(window.location.pathname);
     const { data, loading, error } = useQuery(Details, {
         variables: { id: parseInt(id) }
     });

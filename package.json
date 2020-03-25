@@ -28,6 +28,7 @@
         "graphql": "^14.6.0",
         "graphql-tag": "^2.10.3",
         "lodash": "^4.17.15",
+        "react-ga": "^2.7.0",
         "react-router-dom": "^5.1.2"
     },
     "devDependencies": {
